@@ -1,0 +1,10 @@
+{
+  "emailSubject": "Test Subject for Email Web API",
+  "emailBodyLineList": [
+    "One","Two","Three"
+  ],
+  "emailAddressList": [
+    "pwmorrison@summithealthcare.com", "dllee@summithealthcare.com"
+  ],
+  "fromEmailAddress": "smgApplications@summithealthcare.com"
+}

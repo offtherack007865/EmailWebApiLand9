@@ -1,0 +1,1 @@
+Scaffold-DbContext "Server=vs-dev-db;Database=EmailWebApi8;Trusted_Connection=true;TrustServerCertificate=True" -t EmailConfig Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Project "EmailWebApiLand9.Data"

@@ -1,0 +1,44 @@
+-- check to see if table exists in INFORMATION_SCHEMA.TABLES - ignore DROP TABLE if it does not
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'EmailConfig' AND TABLE_SCHEMA = 'dbo')
+   DROP TABLE [dbo].[EmailConfig];
+GO
+
+CREATE TABLE [dbo].[EmailConfig](
+	[Pk] [bigint] IDENTITY(1,1) NOT NULL
+	,[Enabled] [bit]
+	,[ClientId] [nvarchar] (300) NOT NULL
+	,[EncryptedClientSecret] [nvarchar] (300) NOT NULL
+	,[TenantId] [nvarchar] (300) NOT NULL
+	,[CreatedBy] [nvarchar](100) NOT NULL
+	,[CreatedTimestamp] [datetime] NOT NULL
+	,[UpdatedBy] [nvarchar](100) NOT NULL
+	,[UpdatedTimestamp] [datetime] NOT NULL
+ CONSTRAINT [PK_EmailConfig] PRIMARY KEY CLUSTERED 
+(
+	[Pk] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+insert into [dbo].[EmailConfig]
+(
+	[Enabled]
+	,[ClientId]
+	,[EncryptedClientSecret]
+	,[TenantId]
+	,[CreatedBy]
+	,[CreatedTimestamp]
+	,[UpdatedBy]
+	,[UpdatedTimestamp]
+)
+values
+(
+    1  --[Enabled] [bit]
+	,'14af91b4-e77b-4ef8-94ed-070e7b139730'  --[ClientId] [nvarchar] (300) NOT NULL
+	,'qnPD/h2Ny+XxR+BopS1m/Fg1UepHYfqC+c6FTlzAPHhXYDd4rvPzRcNznBc/oqfU'  --[EncryptedClientSecret] [nvarchar] (300) NOT NULL
+	,'26f211c8-652a-4673-8495-cdeeea6ff167'  --[TenantId] [nvarchar] (300) NOT NULL
+	,'pwmorrison'  --[CreatedBy] [nvarchar](100) NOT NULL
+	,getdate()  --[CreatedTimestamp] [datetime] NOT NULL
+	,'pwmorrison'  --[UpdatedBy] [nvarchar](100) NOT NULL
+	,getdate() --[UpdatedTimestamp] [datetime] NOT NULL
+)
